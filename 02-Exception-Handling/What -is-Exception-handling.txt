@@ -119,7 +119,7 @@ finally {
 
 ## Types of Exceptions in Java
 
-### 1. Checked Exceptions
+### 1. Checked Exceptions / compile time error 
 
 Checked at **compile time**.
 
@@ -139,6 +139,7 @@ Example:
 * ArrayIndexOutOfBoundsException
 
 ---
+### 3. logical errors
 
 ## Short Exam Definition
 
