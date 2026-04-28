@@ -7,6 +7,7 @@ Simple Definition
 
 enum Days{
     Monday  , Tuesday , Wednesday ,Thursday , friday , saturday;  // they all are objects 
+                                                                      // Aur enum ke har constant ek object hota hai.
 }
 public class Enums {
     public static void main(String[] args) {
