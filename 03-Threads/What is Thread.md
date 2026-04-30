@@ -120,15 +120,11 @@ A thread passes through these states:
 
 ---
 
-# Short Exam Definition
+# Short Definition
 
 > A thread in Java is the smallest unit of execution that allows a program to perform multiple tasks simultaneously.
 
 ---
 
-If you want, I can also show **very important exam topics teachers ask from Threads**:
 
-* **Thread Life Cycle Diagram (very common 5-mark question)**
-* **Difference: Thread vs Process**
-* **Difference: start() vs run()**
-* **Synchronization in threads** (most important).
+
