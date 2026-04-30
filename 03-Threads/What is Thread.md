@@ -120,15 +120,132 @@ A thread passes through these states:
 
 ---
 
-# Short Exam Definition
+# Short Definition
 
 > A thread in Java is the smallest unit of execution that allows a program to perform multiple tasks simultaneously.
 
 ---
 
-If you want, I can also show **very important exam topics teachers ask from Threads**:
+## Race Condition
 
-* **Thread Life Cycle Diagram (very common 5-mark question)**
-* **Difference: Thread vs Process**
-* **Difference: start() vs run()**
-* **Synchronization in threads** (most important).
+### 1️⃣ What is this?
+
+A **Race Condition** occurs when **multiple threads access and modify the same shared data at the same time**, and the **final result depends on the order in which the threads execute**.
+
+This happens in **multithreading** programs in **Java** when **threads compete to update shared resources**.
+
+Because the execution order is unpredictable, the output may become **incorrect or inconsistent**.
+
+---
+
+### Example
+
+```java
+class Counter {
+    int count = 0;
+
+    void increment() {
+        count++;
+    }
+}
+```
+
+If **two threads run `increment()` simultaneously**, the result may be wrong.
+
+Example expected result:
+
+```
+count = 2000
+```
+
+Actual result may be:
+
+```
+count = 1534
+```
+
+because both threads **access the variable at the same time**.
+
+---
+
+### 2️⃣ Why does this happen?
+
+Race conditions happen because:
+
+1️⃣ **Threads share the same memory**
+2️⃣ **Operations are not atomic (not completed in one step)**
+3️⃣ **Multiple threads modify data simultaneously**
+
+Example operation:
+
+```
+count++
+```
+
+Actually happens in **three steps**:
+
+```
+1. Read value
+2. Increase value
+3. Write value back
+```
+
+If two threads perform these steps together, the value can be **overwritten incorrectly**.
+
+---
+
+### 3️⃣ Where does this occur?
+
+Race conditions occur in:
+
+* **Multithreading programs**
+* **Banking systems (balance updates)**
+* **Web servers handling multiple users**
+* **Counters and shared variables**
+* **Database transactions**
+
+Example:
+If two users withdraw money from the same account simultaneously, a race condition may occur.
+
+---
+
+## How to Prevent Race Condition
+
+### 1️⃣ Synchronization
+
+```java
+synchronized void increment() {
+    count++;
+}
+```
+
+This allows **only one thread at a time** to access the method.
+
+---
+
+### 2️⃣ Using Locks
+
+Java provides lock mechanisms in multithreading.
+
+---
+
+### 3️⃣ Atomic Variables
+
+Example:
+
+```java
+AtomicInteger count = new AtomicInteger();
+```
+
+---
+
+## Short Exam Definition
+
+> A race condition occurs when multiple threads access and modify shared data simultaneously, causing unpredictable and incorrect results.
+
+---
+
+
+
+
+
